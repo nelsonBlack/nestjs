@@ -20,7 +20,7 @@ describe('Hasura Metadata', () => {
 
     const tables = ['default', 'additional'];
     const tablePaths = tables.map((x) =>
-      path.join(v3Path, `databases/${x}/tables/public_${x}_table.yaml`)
+      path.join(v3Path, `databases/${x}/tables/public_${x}_table.yaml`),
     );
 
     const testYamlFilePaths = [
@@ -44,7 +44,7 @@ describe('Hasura Metadata', () => {
 
     beforeAll(async () => {
       const moduleFixture: TestingModule = await Test.createTestingModule({
-        imports: [HasuraModule.forRoot(HasuraModule, moduleConfig)],
+        imports: [HasuraModule.forRoot(moduleConfig)],
         providers: [TestEventHandlerService],
       }).compile();
 
@@ -54,25 +54,23 @@ describe('Hasura Metadata', () => {
 
     test('generates correct yaml file', async () => {
       expect(yamlFileToJson(cronTriggersYamlPath)).toEqual(
-        yamlFileToJson(`${cronTriggersYamlPath}.expected`)
+        yamlFileToJson(`${cronTriggersYamlPath}.expected`),
       );
     });
   });
 
   describe('v2 metadata', () => {
-    const [metadataPath, moduleConfig] = getVersionedMetadataPathAndConfig(
-      'v2'
-    );
+    const [metadataPath, moduleConfig] =
+      getVersionedMetadataPathAndConfig('v2');
 
     const tablesFilePath = path.join(metadataPath, TABLES_YAML);
     const expectedFilePath = `${tablesFilePath}.expected`;
 
     let app: INestApplication;
 
-    // eslint-disable-next-line sonarjs/no-identical-functions
     beforeAll(async () => {
       const moduleFixture: TestingModule = await Test.createTestingModule({
-        imports: [HasuraModule.forRoot(HasuraModule, moduleConfig)],
+        imports: [HasuraModule.forRoot(moduleConfig)],
         providers: [TestEventHandlerService],
       }).compile();
 
@@ -84,7 +82,7 @@ describe('Hasura Metadata', () => {
       describe('event handlers', () => {
         test('generates the correct metadata', async () => {
           expect(yamlFileToJson(tablesFilePath)).toEqual(
-            yamlFileToJson(expectedFilePath)
+            yamlFileToJson(expectedFilePath),
           );
         });
       });
@@ -94,14 +92,12 @@ describe('Hasura Metadata', () => {
   describe('v3 metadata', () => {
     let app: INestApplication;
 
-    const [metadataPath, moduleConfig] = getVersionedMetadataPathAndConfig(
-      'v3'
-    );
+    const [metadataPath, moduleConfig] =
+      getVersionedMetadataPathAndConfig('v3');
 
-    // eslint-disable-next-line sonarjs/no-identical-functions
     beforeAll(async () => {
       const moduleFixture: TestingModule = await Test.createTestingModule({
-        imports: [HasuraModule.forRoot(HasuraModule, moduleConfig)],
+        imports: [HasuraModule.forRoot(moduleConfig)],
         providers: [TestEventHandlerService],
       }).compile();
 
@@ -116,13 +112,13 @@ describe('Hasura Metadata', () => {
           (d) => {
             const tablePath = path.join(
               metadataPath,
-              `databases/${d}/tables/public_${d}_table.yaml`
+              `databases/${d}/tables/public_${d}_table.yaml`,
             );
 
             expect(yamlFileToJson(tablePath)).toEqual(
-              yamlFileToJson(`${tablePath}.expected`)
+              yamlFileToJson(`${tablePath}.expected`),
             );
-          }
+          },
         );
       });
     });

@@ -1,10 +1,11 @@
 import { Type } from '@nestjs/common';
 
-export interface DiscoveredModule {
+export interface DiscoveredModule<T = object> {
   name: string;
-  instance: {};
+  instance: T;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   injectType?: Function | Type<any>;
-  dependencyType: Type<{}>;
+  dependencyType: Type<T>;
 }
 
 export interface DiscoveredClass extends DiscoveredModule {

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-common@2.0.0...@golevelup/nestjs-common@2.0.1) (2024-11-06)
+
+**Note:** Version bump only for package @golevelup/nestjs-common
+
+# [2.0.0](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-common@1.4.5...@golevelup/nestjs-common@2.0.0) (2023-07-18)
+
+- feat(nestjs)!: add support for v10 (#617) ([817729e](https://github.com/golevelup/nestjs/commit/817729ef0fc4d63647430ddac0d011c038b0c36b)), closes [#617](https://github.com/golevelup/nestjs/issues/617)
+
+### BREAKING CHANGES
+
+- updating to new major NestJS versions
+
+## [1.4.5](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-common@1.4.4...@golevelup/nestjs-common@1.4.5) (2023-07-03)
+
+**Note:** Version bump only for package @golevelup/nestjs-common
+
+## [1.4.4](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-common@1.4.3...@golevelup/nestjs-common@1.4.4) (2022-04-18)
+
+**Note:** Version bump only for package @golevelup/nestjs-common
+
+## [1.4.3](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-common@1.4.2...@golevelup/nestjs-common@1.4.3) (2022-02-01)
+
+**Note:** Version bump only for package @golevelup/nestjs-common
+
 ## [1.4.2](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-common@1.4.1...@golevelup/nestjs-common@1.4.2) (2020-05-13)
 
 **Note:** Version bump only for package @golevelup/nestjs-common

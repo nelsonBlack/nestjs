@@ -7,7 +7,7 @@ import {
 import { INestApplication, Injectable } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const exchange = 'testSubscribeExhange';
 const nackRoutingKey = 'nackRoutingKey';
@@ -50,15 +50,17 @@ describe('Nack and Requeue', () => {
   let app: INestApplication;
   let amqpConnection: AmqpConnection;
 
-  const rabbitHost = process.env.NODE_ENV === 'ci' ? process.env.RABBITMQ_HOST : 'localhost';
-  const rabbitPort = process.env.NODE_ENV === 'ci' ? process.env.RABBITMQ_PORT : '5672';
+  const rabbitHost =
+    process.env.NODE_ENV === 'ci' ? process.env.RABBITMQ_HOST : 'localhost';
+  const rabbitPort =
+    process.env.NODE_ENV === 'ci' ? process.env.RABBITMQ_PORT : '5672';
   const uri = `amqp://rabbitmq:rabbitmq@${rabbitHost}:${rabbitPort}`;
 
   beforeAll(async () => {
     const moduleFixture = await Test.createTestingModule({
       providers: [SubscribeService],
       imports: [
-        RabbitMQModule.forRootAsync(RabbitMQModule, {
+        RabbitMQModule.forRootAsync({
           useFactory: () => ({
             exchanges: [
               {
@@ -83,7 +85,7 @@ describe('Nack and Requeue', () => {
   });
 
   afterAll(async () => {
-    await app.close();
+    await app?.close();
   });
 
   it('should nack the message when handler returns a Nack object', async () => {
