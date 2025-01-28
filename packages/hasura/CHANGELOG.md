@@ -3,6 +3,93 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.9](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@3.0.8...@golevelup/nestjs-hasura@3.0.9) (2025-01-24)
+
+**Note:** Version bump only for package @golevelup/nestjs-hasura
+
+## [3.0.8](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@3.0.7...@golevelup/nestjs-hasura@3.0.8) (2024-11-06)
+
+### Bug Fixes
+
+- **deps:** fix pnpm dependency issue ([#868](https://github.com/golevelup/nestjs/issues/868)) ([9a02e8b](https://github.com/golevelup/nestjs/commit/9a02e8b31f467d211e333e056a4c4374023a966a)), closes [#817](https://github.com/golevelup/nestjs/issues/817)
+
+## [3.0.7](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@3.0.6...@golevelup/nestjs-hasura@3.0.7) (2024-08-15)
+
+### Bug Fixes
+
+- **hasura:** handle both "one off" and "cron" type scheduled events ([9590f28](https://github.com/golevelup/nestjs/commit/9590f28e5e1f47d6a330fc7de2709e77fbe974c5)), closes [#760](https://github.com/golevelup/nestjs/issues/760)
+
+## [3.0.6](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@3.0.5...@golevelup/nestjs-hasura@3.0.6) (2024-04-10)
+
+**Note:** Version bump only for package @golevelup/nestjs-hasura
+
+## [3.0.5](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@3.0.4...@golevelup/nestjs-hasura@3.0.5) (2024-02-09)
+
+**Note:** Version bump only for package @golevelup/nestjs-hasura
+
+## [3.0.4](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@3.0.3...@golevelup/nestjs-hasura@3.0.4) (2023-07-18)
+
+**Note:** Version bump only for package @golevelup/nestjs-hasura
+
+## [3.0.3](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@3.0.2...@golevelup/nestjs-hasura@3.0.3) (2023-07-03)
+
+### Bug Fixes
+
+- **hasura:** fixed the order of metadata to match the exported one ([#608](https://github.com/golevelup/nestjs/issues/608)) ([3c3481a](https://github.com/golevelup/nestjs/commit/3c3481a8de94ad8e719c28279c6fcafa1e379957))
+
+## [3.0.2](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@3.0.1...@golevelup/nestjs-hasura@3.0.2) (2022-10-31)
+
+### Bug Fixes
+
+- **hasura:** process scheduled events ([#524](https://github.com/golevelup/nestjs/issues/524)) ([cbdc3af](https://github.com/golevelup/nestjs/commit/cbdc3af132ed89df7dd4e72e0afabd2fe96830a1)), closes [/github.com/golevelup/nestjs/blob/master/packages/hasura/src/hasura.module.ts#L175](https://github.com//github.com/golevelup/nestjs/blob/master/packages/hasura/src/hasura.module.ts/issues/L175)
+
+## [3.0.1](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@3.0.0...@golevelup/nestjs-hasura@3.0.1) (2022-07-28)
+
+**Note:** Version bump only for package @golevelup/nestjs-hasura
+
+# [3.0.0](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@2.0.4...@golevelup/nestjs-hasura@3.0.0) (2022-07-16)
+
+- feat!(stripe, hasura): named execution contexts ([132c6c5](https://github.com/golevelup/nestjs/commit/132c6c5f6dfe24659e1018b92b85277cad2f1726))
+
+### BREAKING CHANGES
+
+- Switches to using named contexts for stripe and hasura which might have an impact on how interceptors and other NestJS enhancers work with methods that are decorated with the corresponding library handlers
+
+## [2.0.4](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@2.0.3...@golevelup/nestjs-hasura@2.0.4) (2022-07-16)
+
+**Note:** Version bump only for package @golevelup/nestjs-hasura
+
+## [2.0.3](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@2.0.2...@golevelup/nestjs-hasura@2.0.3) (2022-04-18)
+
+**Note:** Version bump only for package @golevelup/nestjs-hasura
+
+## [2.0.2](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@2.0.1...@golevelup/nestjs-hasura@2.0.2) (2022-02-04)
+
+### Bug Fixes
+
+- **logging:** use Logger instead of ConsoleLogger ([#388](https://github.com/golevelup/nestjs/issues/388)) ([a0f2597](https://github.com/golevelup/nestjs/commit/a0f2597a3d3522f8003957753ca9b814b47652fd)), closes [#351](https://github.com/golevelup/nestjs/issues/351)
+
+## [2.0.1](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@2.0.0...@golevelup/nestjs-hasura@2.0.1) (2022-02-01)
+
+**Note:** Version bump only for package @golevelup/nestjs-hasura
+
+# [2.0.0](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@1.3.2...@golevelup/nestjs-hasura@2.0.0) (2022-01-24)
+
+- feat!: update libraries to support Nest 8 (#342) ([de7cd35](https://github.com/golevelup/nestjs/commit/de7cd35ac2e63d66af76b792d5bf99b4a2d82bb4)), closes [#342](https://github.com/golevelup/nestjs/issues/342)
+
+### BREAKING CHANGES
+
+- Nest dependencies have been bumped from 6.x -> 8.x and we will no longer be supporting versions older than 8.x for future development
+
+Co-authored-by: Christophe BLIN <cblin@monkeyfactory.fr>
+Co-authored-by: danocmx <glencocomaster@centrum.cz>
+Co-authored-by: Rodrigo <monstawoodwow@gmail.com>
+Co-authored-by: Jesse Carter <jesse.r.carter@gmail.com>
+
+## [1.3.2](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@1.3.1...@golevelup/nestjs-hasura@1.3.2) (2022-01-19)
+
+**Note:** Version bump only for package @golevelup/nestjs-hasura
+
 ## [1.3.1](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-hasura@1.3.0...@golevelup/nestjs-hasura@1.3.1) (2021-10-06)
 
 **Note:** Version bump only for package @golevelup/nestjs-hasura

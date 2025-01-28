@@ -28,15 +28,17 @@ describe('Rabbit Subscribe Without Register Handlers', () => {
   let app: INestApplication;
   let amqpConnection: AmqpConnection;
 
-  const rabbitHost = process.env.NODE_ENV === 'ci' ? process.env.RABBITMQ_HOST : 'localhost';
-  const rabbitPort = process.env.NODE_ENV === 'ci' ? process.env.RABBITMQ_PORT : '5672';
+  const rabbitHost =
+    process.env.NODE_ENV === 'ci' ? process.env.RABBITMQ_HOST : 'localhost';
+  const rabbitPort =
+    process.env.NODE_ENV === 'ci' ? process.env.RABBITMQ_PORT : '5672';
   const uri = `amqp://rabbitmq:rabbitmq@${rabbitHost}:${rabbitPort}`;
 
   beforeAll(async () => {
     const moduleFixture = await Test.createTestingModule({
       providers: [SubscribeService],
       imports: [
-        RabbitMQModule.forRoot(RabbitMQModule, {
+        RabbitMQModule.forRoot({
           exchanges: [
             {
               name: exchange,
@@ -56,19 +58,15 @@ describe('Rabbit Subscribe Without Register Handlers', () => {
   });
 
   afterAll(async () => {
-    await app.close();
+    await app?.close();
   });
 
-  it('should not receive subscribe messages because register handlers is disabled', async (done) => {
+  it('should not receive subscribe messages because register handlers is disabled', async () => {
     [routingKey1, routingKey2].forEach((x, i) =>
       amqpConnection.publish(exchange, x, `testMessage-${i}`),
     );
 
-    expect.assertions(1);
-
-    setTimeout(() => {
-      expect(testHandler).not.toHaveBeenCalled();
-      done();
-    }, 100);
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    expect(testHandler).not.toHaveBeenCalled();
   });
 });

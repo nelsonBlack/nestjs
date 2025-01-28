@@ -2,6 +2,7 @@ import { AmqpConnection } from '@golevelup/nestjs-rabbitmq';
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { AppModule } from '../src/app.module';
+import { randomUUID } from 'crypto';
 
 const nonJsonRpcRoutingKey = 'non-json-rpc';
 
@@ -14,7 +15,7 @@ describe('Rabbit RPC', () => {
   });
 
   afterAll(async () => {
-    await app.close();
+    await app?.close();
   });
 
   beforeAll(async () => {
@@ -37,6 +38,33 @@ describe('Rabbit RPC', () => {
     });
 
     expect(response).toEqual({ echo: { request: 'val' } });
+  });
+
+  it('multiple RPC handler should receive a valid RPC response in parallel', async () => {
+    const correlationId = randomUUID();
+    const firstResponse = await amqpConnection.request({
+      exchange: 'exchange1',
+      routingKey: 'delay-rpc',
+      correlationId,
+      headers: { 'X-Request-ID': randomUUID() },
+      payload: {
+        request: 'first request',
+        delay: 1000,
+      },
+    });
+    const secondResponse = await amqpConnection.request({
+      exchange: 'exchange1',
+      routingKey: 'delay-rpc',
+      correlationId,
+      headers: { 'X-Request-ID': randomUUID() },
+      payload: {
+        request: 'second request',
+        delay: 20,
+      },
+    });
+
+    expect(firstResponse).toEqual({ echo: { request: 'first request' } });
+    expect(secondResponse).toEqual({ echo: { request: 'second request' } });
   });
 
   it('intercepted RPC handler should receive a transformed RPC response', async () => {
@@ -78,7 +106,7 @@ describe('Rabbit RPC', () => {
       payload: Buffer.alloc(0),
     });
 
-    expect(response).toEqual({ echo: undefined });
+    expect(response).toEqual({ echo: '' });
   });
 
   it('non-JSON RPC handler with unparsable message should receive a valid RPC response', async () => {
@@ -88,6 +116,6 @@ describe('Rabbit RPC', () => {
       payload: Buffer.from('{a:'),
     });
 
-    expect(response).toEqual({ echo: undefined });
+    expect(response).toEqual({ echo: '{a:' });
   });
 });

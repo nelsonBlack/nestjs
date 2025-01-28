@@ -1,0 +1,40 @@
+{
+  "name": "@golevelup/ts-vitest",
+  "version": "0.5.2",
+  "description": "Reusable utilities to help level up NestJS Testing",
+  "author": "Jesse Carter <jesse.r.carter@gmail.com>",
+  "homepage": "https://github.com/golevelup/nestjs#readme",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "NestJS",
+    "testing",
+    "utilities",
+    "levelup"
+  ],
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/golevelup/nestjs.git"
+  },
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "build:watch": "tsc --build tsconfig.build.json --watch",
+    "test": "vitest"
+  },
+  "bugs": {
+    "url": "https://github.com/golevelup/nestjs/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "6f97aab8ce9d65dc074750a3ee467ec5ff3b9908"
+}

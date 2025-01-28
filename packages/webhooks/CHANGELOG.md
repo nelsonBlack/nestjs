@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.20](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.19...@golevelup/nestjs-webhooks@0.2.20) (2025-01-24)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
+## [0.2.19](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.18...@golevelup/nestjs-webhooks@0.2.19) (2024-11-06)
+
+### Bug Fixes
+
+- **deps:** fix pnpm dependency issue ([#868](https://github.com/golevelup/nestjs/issues/868)) ([9a02e8b](https://github.com/golevelup/nestjs/commit/9a02e8b31f467d211e333e056a4c4374023a966a)), closes [#817](https://github.com/golevelup/nestjs/issues/817)
+
+## [0.2.18](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.17...@golevelup/nestjs-webhooks@0.2.18) (2024-02-09)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
+## [0.2.17](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.16...@golevelup/nestjs-webhooks@0.2.17) (2023-11-21)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
+## [0.2.16](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.15...@golevelup/nestjs-webhooks@0.2.16) (2023-07-18)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
+## [0.2.15](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.14...@golevelup/nestjs-webhooks@0.2.15) (2023-07-03)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
+## [0.2.14](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.13...@golevelup/nestjs-webhooks@0.2.14) (2022-07-28)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
+## [0.2.13](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.12...@golevelup/nestjs-webhooks@0.2.13) (2022-07-16)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
+## [0.2.12](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.11...@golevelup/nestjs-webhooks@0.2.12) (2022-04-18)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
+## [0.2.11](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.10...@golevelup/nestjs-webhooks@0.2.11) (2022-02-01)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
+## [0.2.10](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.9...@golevelup/nestjs-webhooks@0.2.10) (2022-01-24)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
+## [0.2.9](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.8...@golevelup/nestjs-webhooks@0.2.9) (2022-01-19)
+
+**Note:** Version bump only for package @golevelup/nestjs-webhooks
+
 ## [0.2.8](https://github.com/golevelup/nestjs/compare/@golevelup/nestjs-webhooks@0.2.7...@golevelup/nestjs-webhooks@0.2.8) (2021-10-06)
 
 **Note:** Version bump only for package @golevelup/nestjs-webhooks

@@ -2,7 +2,12 @@ node_modules/
 lerna-debug.log
 npm-debug.log
 packages/*/lib
+packages/testing/*/lib
 .idea
 coverage/
-junit.xml
 tsconfig.build.tsbuildinfo
+integration/rabbitmq/dist
+
+# doc ignored directories
+docs/.vitepress/dist
+docs/.vitepress/cache

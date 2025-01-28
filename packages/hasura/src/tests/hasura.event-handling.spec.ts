@@ -1,14 +1,14 @@
-import { Injectable, INestApplication } from '@nestjs/common';
+import { INestApplication, Injectable } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+import { pick } from 'lodash';
 import * as request from 'supertest';
 import { HasuraEventHandler } from '../hasura.decorators';
 import { EventHandlerController } from '../hasura.event-handler.controller';
-import { HasuraModule } from '../hasura.module';
 import {
   HasuraModuleConfig,
   HasuraScheduledEventPayload,
 } from '../hasura.interfaces';
-import { pick } from 'lodash';
+import { HasuraModule } from '../hasura.module';
 
 const triggerBoundEventHandler = jest.fn();
 const scheduledEventHandler = jest.fn();
@@ -55,6 +55,14 @@ const eventPayloadMissingTableAndTrigger = {
   trigger: { name: 'unbound_trigger' },
 };
 
+const scheduledOneOffEventPayload: HasuraScheduledEventPayload = {
+  comment: scheduled_trigger,
+  created_at: new Date(),
+  id: 'id',
+  scheduled_time: new Date(),
+  payload: {},
+};
+
 const scheduledEventPayload: HasuraScheduledEventPayload = {
   name: scheduled_trigger,
   created_at: new Date(),
@@ -98,10 +106,10 @@ describe.each(cases)(
     beforeEach(async () => {
       const moduleImport =
         moduleType === 'forRootAsync'
-          ? HasuraModule.forRootAsync(HasuraModule, {
+          ? HasuraModule.forRootAsync({
               useFactory: () => moduleConfig,
             })
-          : HasuraModule.forRoot(HasuraModule, moduleConfig);
+          : HasuraModule.forRoot(moduleConfig);
 
       const moduleFixture: TestingModule = await Test.createTestingModule({
         imports: [moduleImport],
@@ -151,6 +159,21 @@ describe.each(cases)(
       expect(triggerBoundEventHandler).toHaveBeenCalledWith(eventPayload);
     });
 
+    it('should pass the scheduled one off event payload to the correct handler', async () => {
+      const response = await request(app.getHttpServer())
+        .post(hasuraEndpoint)
+        .set(secretHeader, secret)
+        .send(scheduledOneOffEventPayload);
+
+      expect(response.status).toEqual(202);
+      expect(scheduledEventHandler).toHaveBeenCalledTimes(1);
+      expect(scheduledEventHandler).toHaveBeenCalledWith(
+        expect.objectContaining(
+          pick(scheduledOneOffEventPayload, ['comment', 'payload']),
+        ),
+      );
+    });
+
     it('should pass the scheduled event payload to the correct handler', async () => {
       const response = await request(app.getHttpServer())
         .post(hasuraEndpoint)
@@ -161,18 +184,18 @@ describe.each(cases)(
       expect(scheduledEventHandler).toHaveBeenCalledTimes(1);
       expect(scheduledEventHandler).toHaveBeenCalledWith(
         expect.objectContaining(
-          pick(scheduledEventPayload, ['name', 'payload'])
-        )
+          pick(scheduledEventPayload, ['name', 'payload']),
+        ),
       );
     });
-  }
+  },
 );
 
 describe('HasuraModule with Custom Decorator', () => {
   it('should call the decorator and set metadata for the controller', async () => {
     await Test.createTestingModule({
       imports: [
-        HasuraModule.forRoot(HasuraModule, {
+        HasuraModule.forRoot({
           decorators: [SetMetadata()],
           webhookConfig: {
             secretHeader,
@@ -183,7 +206,7 @@ describe('HasuraModule with Custom Decorator', () => {
     }).compile();
     const controllerMeta = Reflect.getMetadata(
       'TEST:METADATA',
-      EventHandlerController
+      EventHandlerController,
     );
     expect(controllerMeta).toBe('metadata');
   });
